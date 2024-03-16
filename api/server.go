@@ -46,7 +46,6 @@ func NewPerson(name string, age int16) *Person {
 }
 
 func PersonHandler(w http.ResponseWriter, req *http.Request) {
-	fmt.Printf("Api got called %s with %s method\n", req.RequestURI, req.Method)
 	w.Header().Set("Content-Type", "application/json")
 	if req.Method == http.MethodPost {
 		creatPerson(w, req)
