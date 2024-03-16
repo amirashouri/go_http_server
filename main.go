@@ -10,7 +10,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", api.Greeting)
-	http.HandleFunc("/person", api.LogMiddleware(api.PersonHandler))
+	http.HandleFunc("/person", api.LogMiddleware(api.AuthMiddleware(api.PersonHandler)))
 
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
